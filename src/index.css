@@ -117,6 +117,29 @@ body {
 
   }
 
+  #animated-link {
+    @apply relative cursor-pointer;
+
+    li {
+      @apply list-none;
+    }
+
+    .liBox {
+      @apply text-9xl w-full overflow-hidden;
+      height: 1em;
+      line-height: 1;
+    }
+
+    .liBox a {
+      @apply absolute top-0 left-0 w-full overflow-auto;
+    }
+
+    .liBox a.duplicate {
+      @apply relative top-0 left-0 w-full pointer-events-none;
+    }
+
+  }
+
   #temp-section {
     @apply w-full h-screen flex-center;
   }
