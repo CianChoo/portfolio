@@ -36,13 +36,13 @@
             yPercent: -100,
             duration: 0.4,
             stagger: 0.03,
-            ease: "power2.in",
+            ease: "ease2.in",
             }, 0)
             .to(duplicate.chars, {
             yPercent: 0,
             duration: 0.4,
             stagger: 0.03,
-            ease: "power2.in",
+            ease: "ease2.in",
             }, 0);
         };
 
@@ -57,13 +57,13 @@
             yPercent: 0,
             duration: 0.4,
             stagger: 0.03,
-            ease: "power2.out",
+            ease: "ease2.out",
             }, 0)
             .to(duplicate.chars, {
             yPercent: 100,
             duration: 0.4,
             stagger: 0.03,
-            ease: "power2.out",
+            ease: "ease2.out",
             }, 0);
         };
 
