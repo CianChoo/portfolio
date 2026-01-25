@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family:'Courier New';
+  src: local('Courier New'), local('CourierNew'), url('/fonts/CourierNew.woff2') format('woff2'), url('/fonts/CourierNew.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Babas Neue';
+  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@utility flex-center {
+  @apply flex justify-center items-center;
+}
+
+@utility col-center {
+  @apply flex flex-col justify-center items-center;
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+@theme {
+  --text-primary-header: {
+    font-size: 200px;
+
+  }
+}
+
+@layer components {
+  main {
+    @apply w-full overflow-x-hidden;
+  }
+
+  nav {
+    @apply fixed z-50 w-full;
+
+    div {
+      @apply justify-end flex md:flex-row flex-col md:justify-end items-center gap-5 py-5 lg:px-0 px-5 container mx-auto;
+    }
+
+    p {
+      @apply text-3xl -mb-2 cursor-pointer;
+    }
+
+    a {
+      @apply cursor-pointer text-nowrap md:text-base text-sm;
+    }
+
+    ul {
+      @apply flex-center lg:gap-12 gap-8;
+    }
+  }
+
+  #hero {
+    @apply w-full h-screen flex-center flex-col text-center px-5;
+
+
+    .header {
+
+      @apply absolute top-0 left-0 lg:w-1/2 md:w-full p-8 text-left;
+    
+      h1 {
+        @apply text-[100px] md:text-[150px] lg:text-[200px];
+        font-family: 'Babas Neue', sans-serif;
+      }
+    }
+
+    .body {
+      @apply container mx-auto absolute lg:bottom-36 flex justify-between items-end px-5;
+
+    }
+  }
+
+  #menu-overlay {
+    @apply  fixed top-0 right-0 w-full lg:w-1/2 h-screen bg-black/90 z-50 flex-center flex-col gap-10 text-4xl;
+    font-family: 'Babas Neue', sans-serif;
+
+
+    li {
+      @apply cursor-pointer;
+    }
+
+    ul {
+      @apply flex-center flex-col gap-10;
+    }
+
+  }
+
+  #temp-section {
+    @apply w-full h-screen flex-center;
+  }
+}
+
