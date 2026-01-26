@@ -63,7 +63,7 @@ body {
   }
 
   nav {
-    @apply fixed z-50 w-full;
+    @apply fixed z-50 w-1/2 p-8 top-0 right-0 leading-none  ;
 
     div {
       @apply justify-end flex md:flex-row flex-col md:justify-end items-center gap-5 py-5 lg:px-0 px-5 container mx-auto;
@@ -83,15 +83,13 @@ body {
   }
 
   #hero {
-    @apply w-full h-screen flex-center flex-col text-center px-5;
-
+    @apply w-full h-screen flex-center flex-col text-center;
 
     .header {
-
-      @apply absolute top-0 left-0 lg:w-1/2 md:w-full p-8 text-left;
-    
+      @apply absolute w-fit h-fit top-0 left-0 lg:w-1/2 md:w-full p-8 text-left;
+      
       h1 {
-        @apply text-[100px] md:text-[150px] lg:text-[200px];
+        @apply text-[100px] md:text-[150px] lg:text-[200px] leading-none;
         font-family: 'Babas Neue', sans-serif;
       }
     }

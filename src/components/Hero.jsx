@@ -24,17 +24,17 @@ const Hero = () => {
 
 
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center">
-            
-            <div className="header">
-                <h1>CIAN CHOO</h1>
-            </div>
+            <section id="hero">
+                
+                <div className="header">
+                    <h1 >CIAN CHOO</h1>
+                </div>
 
-            <div className="body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda velit mollitia, animi odio magni quia vitae at earum blanditiis tempora nulla excepturi iure provident, minus rem ut. Adipisci, odit quaerat.</p>
-            </div>
-            
-        </section>
+                <div className="body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda velit mollitia, animi odio magni quia vitae at earum blanditiis tempora nulla excepturi iure provident, minus rem ut. Adipisci, odit quaerat.</p>
+                </div>
+                
+            </section>
     )
 }
 

@@ -20,7 +20,7 @@ function App() {
     <ReactLenis root options={{ smoothWheel: true, lerp: 0.1, duration: 1.2 }}>
       <main>
         <Navbar />
-        <Hero />
+        <Hero /> 
         <TempSection />
       </main>
     </ReactLenis>
