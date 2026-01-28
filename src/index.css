@@ -19,7 +19,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #101010e8;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -62,11 +62,11 @@ body {
   }
 
   nav {
-    @apply fixed z-50 w-1/2 p-8 top-0 right-0 leading-none  ;
+    @apply absolute top-1/2 -translate-y-1/2 end-0 z-50 items-center leading-none;
 
     div {
-      @apply justify-end flex md:flex-row flex-col md:justify-end items-center gap-5 py-5 lg:px-0 px-5 container mx-auto;
-    }
+      @apply p-8 cursor-pointer;
+     }
 
     p {
       @apply text-3xl -mb-2 cursor-pointer;
@@ -88,16 +88,12 @@ body {
       @apply absolute top-0 left-0 lg:w-1/2 md:w-full p-8 text-left overflow-hidden;
 
       h1 {
-        @apply ml-auto mr-auto text-center inline-block relative z-1 text-[100px] md:text-[150px] lg:text-[200px] leading-none;
+        @apply ml-auto mr-auto text-center inline-block relative z-1 text-[100px] md:text-[150px] lg:text-[200px] leading-none text-[#C76E00];
         font-family: 'Babas Neue', sans-serif;
-        
-        .text {
-          opacity: 0;
-        }
       }
       
       .bar {
-        @apply z-2 absolute top-0 left-0 w-full h-[90%] bg-white;
+        @apply z-2 absolute top-0 left-0 w-full h-[90%] bg-[#C76E00] rounded-xl;
       }
       
       
@@ -111,7 +107,7 @@ body {
   }
 
   #menu-overlay {
-    @apply  fixed top-0 right-0 w-full lg:w-1/2 h-screen bg-black/90 z-50 flex-center flex-col gap-10 text-4xl;
+    @apply  fixed w-full h-full bg-black/90 z-50 flex-center flex-col gap-10 text-4xl rounded-2xl lg:w-1/2 lg:top-[2.5vh] lg:right-[2.5vh] lg:h-[95vh];
     font-family: 'Babas Neue', sans-serif;
 
 

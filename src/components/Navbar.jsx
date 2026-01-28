@@ -16,7 +16,7 @@ const Navbar = () => {
 
       gsap.fromTo("#menu-overlay", 
         { xPercent: 100 }, 
-        { xPercent: 0, duration: 0.5, ease: "power1.inOut" }
+        { xPercent: 0, duration: 0.5, ease: "power2.inOut" }
       );
     
       gsap.fromTo("#menu-overlay li", 
