@@ -1,33 +1,39 @@
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 import gsap from 'gsap'
-import React, { use } from 'react'
+import React, { use, useLayoutEffect } from 'react'
 
 const Hero = () => {
 
     useGSAP(() => {
-        const splitText = new SplitText('.body h1', { type: 'words,chars' });
-        
-        gsap.from(splitText.chars, {
-            duration: 1,
-            opacity: 0,
-            y: 50,
-            stagger: 0.05,
-            ease: 'power1.out',
-            scrollTrigger: {
-                trigger: '#hero',
-                start: 'top 80%',
-            },
-        });
+
+        const timeline = gsap.timeline()
+
+        timeline.fromTo('#hero .bar',
+            {scaleX: 0, opacity: 0, transformOrigin: 'top left', ease: 'ease2.inOut', duration: 0.5},
+            {scaleX: 1, opacity: 1, transformOrigin: 'top left', ease: 'power2.inOut', duration: 0.5, delay: 0.3}
+        )
+
+        .fromTo('#hero .bar',
+            {scaleX: 1, transformOrigin: 'top left', ease: 'ease2.inOut', duration: 0.5, delay: 0.5},
+            {scaleX: 0, transformOrigin: 'top right', ease: 'power2.inOut', duration: 0.5, delay: 0.3}
+        )
+
+        .fromTo('#hero .text',
+            {scaleX: 0, opacity: 0, ease: 'ease2.inOut', duration: 0.5},
+            {scaleX: 1, opacity: 1, ease: 'power2.inOut', duration: 0.5},
+            '-=0.5'
+        )
     }, [])
-
-
 
     return (
             <section id="hero">
                 
                 <div className="header">
-                    <h1 >CIAN CHOO</h1>
+                    <h1>
+                        <div className="bar" />
+                        <span className="text">CIAN CHOO</span>
+                    </h1>
                 </div>
 
                 <div className="body">

@@ -27,11 +27,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
 html,
 body {
   width: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 @utility flex-center {
@@ -40,14 +47,6 @@ body {
 
 @utility col-center {
   @apply flex flex-col justify-center items-center;
-}
-
-@utility no-scrollbar {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
 }
 
 @theme {
@@ -86,13 +85,24 @@ body {
     @apply w-full h-screen flex-center flex-col text-center;
 
     .header {
-      @apply absolute w-fit h-fit top-0 left-0 lg:w-1/2 md:w-full p-8 text-left;
-      
+      @apply absolute top-0 left-0 lg:w-1/2 md:w-full p-8 text-left overflow-hidden;
+
       h1 {
-        @apply text-[100px] md:text-[150px] lg:text-[200px] leading-none;
+        @apply ml-auto mr-auto text-center inline-block relative z-1 text-[100px] md:text-[150px] lg:text-[200px] leading-none;
         font-family: 'Babas Neue', sans-serif;
+        
+        .text {
+          opacity: 0;
+        }
       }
+      
+      .bar {
+        @apply z-2 absolute top-0 left-0 w-full h-[90%] bg-white;
+      }
+      
+      
     }
+
 
     .body {
       @apply container mx-auto absolute lg:bottom-36 flex justify-between items-end px-5;
