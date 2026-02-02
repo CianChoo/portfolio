@@ -12,19 +12,54 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Cabinet';
+  src: url('/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+  /* font-weight: normal;
+  font-style: normal; */
+}
+
 :root {
+  --background-black: #100F0F;
+  --primary-900: hsl(256, 43%, 7%);
+  --primary-800: hsl(240, 24%, 13%);
+  --primary-700: hsl(243, 26%, 15%);
+  --primary-600: hsl(252, 9%, 22%);
+  --primary-500: hsl(259, 13%, 28%);
+  --primary-400: hsl(254, 22%, 32%);
+
+  --primary-300: hsl(251, 13%, 68%);
+  --primary-200: hsl(240, 15%, 76%);
+  --primary-100: hsl(240, 21%, 88%);
+
+  --neutral-100: hsl(0, 0%, 100%);
+
+  --accent-400: hsl(93, 60%, 69%);
+
+  --text-1: var(--neutral-100);
+  --text-2: var(--primary-100);
+  --text-3: var(--primary-200);
+
+  --surface-1: var(--primary-900);
+  --surface-2: var(--primary-800);
+  --surface-3: var(--primary-700);
+
+  --border-1: var(--primary-500); /* top */
+  --border-2: var(--primary-600); /* bottom */
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #101010e8;
-
+  background-color: var(--background-black);
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 body::-webkit-scrollbar {
@@ -57,27 +92,21 @@ body {
 }
 
 @layer components {
+
   main {
     @apply w-full overflow-x-hidden;
   }
 
   nav {
-    @apply absolute top-1/2 -translate-y-1/2 end-0 z-50 items-center leading-none;
+    @apply fixed top-1/2 -translate-y-1/2 end-5 z-50 items-center leading-none;
 
-    div {
-      @apply p-8 cursor-pointer;
-     }
-
-    p {
-      @apply text-3xl -mb-2 cursor-pointer;
+    .menu-box {
+      @apply p-5 right-[2.5vh] cursor-pointer rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300;
     }
 
-    a {
-      @apply cursor-pointer text-nowrap md:text-base text-sm;
-    }
-
-    ul {
-      @apply flex-center lg:gap-12 gap-8;
+    .menu-text {
+      @apply text-3xl font-bold;
+      font-family: 'Babas Neue', sans-serif;
     }
   }
 
@@ -85,29 +114,38 @@ body {
     @apply w-full h-screen flex-center flex-col text-center;
 
     .header {
-      @apply absolute top-0 left-0 lg:w-1/2 md:w-full p-8 text-left overflow-hidden;
+      @apply absolute w-full text-left overflow-hidden;
 
       h1 {
-        @apply ml-auto mr-auto text-center inline-block relative z-1 text-[100px] md:text-[150px] lg:text-[200px] leading-none text-[#C76E00];
-        font-family: 'Babas Neue', sans-serif;
+        @apply relative z-1 text-[90px] md:text-[150px] lg:text-[200px] leading-none;
+        /* font-family: 'Babas Neue', sans-serif; */
+        font-family: 'Cabinet', sans-serif;
+        font-weight: lighter;
+        color: var(--text-1);
       }
       
       .bar {
-        @apply z-2 absolute top-0 left-0 w-full h-[90%] bg-[#C76E00] rounded-xl;
+        @apply z-2 absolute top-0 left-0 w-full h-[90%] rounded-xl;
+        background-color: var(--text-1);
       }
       
-      
     }
-
 
     .body {
-      @apply container mx-auto absolute lg:bottom-36 flex justify-between items-end px-5;
+      @apply z-1 mx-auto absolute lg:bottom-36 flex justify-between items-end px-5;
 
+      p {
+        @apply text-2xl md:text-3xl lg:text-4xl font-light;
+        /* font-family: 'Courier New', monospace; */
+        color: var(--text-2);
+      }
     }
+
+
   }
 
   #menu-overlay {
-    @apply  fixed w-full h-full bg-black/90 z-50 flex-center flex-col gap-10 text-4xl rounded-2xl lg:w-1/2 lg:top-[2.5vh] lg:right-[2.5vh] lg:h-[95vh];
+    @apply  fixed w-full h-full right-0 top-0 bg-black/90 z-50 flex-center flex-col gap-10 text-4xl lg:w-1/2 ;
     font-family: 'Babas Neue', sans-serif;
 
 

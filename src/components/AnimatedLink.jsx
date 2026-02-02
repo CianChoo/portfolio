@@ -47,24 +47,24 @@
         };
 
         const hoverOut = (index) => {
-        const [original, duplicate] = splitTextRefs.current[index];
-        if (!original || !duplicate) return;
+            const [original, duplicate] = splitTextRefs.current[index];
+            if (!original || !duplicate) return;
 
-        const timeline = gsap.timeline();
-        
-        timeline
-            .to(original.chars, {
-            yPercent: 0,
-            duration: 0.4,
-            stagger: 0.03,
-            ease: "ease2.out",
-            }, 0)
-            .to(duplicate.chars, {
-            yPercent: 100,
-            duration: 0.4,
-            stagger: 0.03,
-            ease: "ease2.out",
-            }, 0);
+            const timeline = gsap.timeline();
+            
+            timeline
+                .to(original.chars, {
+                yPercent: 0,
+                duration: 0.4,
+                stagger: 0.03,
+                ease: "ease2.out",
+                }, 0)
+                .to(duplicate.chars, {
+                yPercent: 100,
+                duration: 0.4,
+                stagger: 0.03,
+                ease: "ease2.out",
+                }, 0);
         };
 
         // Attach hover events
@@ -79,8 +79,8 @@
         <div id="animated-link">  
             {navLinks.map((link, index) => (
                 <li 
-                key={link.id}
-                ref={el => linksRef.current[index] = el}
+                    key={link.id}
+                    ref={el => linksRef.current[index] = el}
                 >
                 <div className="liBox">
                     <a 

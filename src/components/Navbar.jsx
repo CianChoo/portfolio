@@ -34,6 +34,27 @@ const Navbar = () => {
         { opacity: 1, xPercent: 0, duration: 0.2 }
       );
     }
+
+    const onHoverMenuBox = () => {
+
+      gsap.to(".menu-text", { scale: 1.1, duration: 0.3, ease: "power2.out" });
+      gsap.to(".menu-box", { rotation: 5, duration: 0.3, ease: "power2.out" });
+    };
+
+    const onHoverOutMenuBox = () => {
+      gsap.to(".menu-text", { scale: 1.0, duration: 0.3, ease: "power2.out" });
+      gsap.to(".menu-box", { rotation: 0, duration: 0.3, ease: "power2.out" });
+    };
+
+    const menuBox = document.querySelector(".menu-box");
+    menuBox.addEventListener("mouseenter", onHoverMenuBox);
+    menuBox.addEventListener("mouseleave", onHoverOutMenuBox);
+
+    return () => {
+      menuBox.removeEventListener("mouseenter", onHoverMenuBox);
+      menuBox.removeEventListener("mouseleave", onHoverOutMenuBox);
+    };
+
   }, [isMenuOpen])
 
 
@@ -46,8 +67,8 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <div>
-          <p onClick={() => setIsMenuOpen(!isMenuOpen)}>Menu</p>
+        <div className="menu-box" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <p className="menu-text">Menu</p>
         </div>
       </nav>
 
